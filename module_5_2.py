@@ -9,8 +9,7 @@ class House:
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
     def __len__(self):
-        self.len = self.number_of_floors
-        return self.len
+        return self.number_of_floors
 
 
 h1 = House('ЖК Эльбрус', 10)
