@@ -1,6 +1,7 @@
 # Задача "Учёт товаров":
 
 from pprint import pprint
+import os.path
 
 
 class Product:
@@ -19,10 +20,14 @@ class Shop:
 
     def get_products(self):
         __file_name = 'products.txt'
-        file = open(__file_name, 'r')
-        z = file.read()  # возвращает единую строку со всеми товарами из файла __file_name.
-        file.close()
-        return z
+        if os.path.exists(__file_name):     # Проверка на существование файла
+            file = open(__file_name, 'r')
+            z = file.read()  # возвращает единую строку со всеми товарами из файла __file_name.
+            file.close()
+            return z
+        else:
+            file = open(__file_name, "a")
+            file.close()
 
     def add(self, *products):
         for i in products:  # Перебираем продукты
